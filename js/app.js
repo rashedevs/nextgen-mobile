@@ -35,7 +35,7 @@ const displayPhones = phones => {
     box.textContent = ''
     const first20Data = phones.slice(0, 20)
     for (const phone of first20Data) {
-        // console.log(phone)
+        console.log(phone.slug)
         const div = document.createElement('div')
         div.classList.add('col-lg-4')
         div.classList.add('my-4')
