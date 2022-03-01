@@ -1,0 +1,14 @@
+body{
+    background-color: #ebfcf4;
+    margin: 0;
+    padding: 0;
+}
+#header{
+    color: #1f96f7;
+}
+#image{
+    height: 550px;
+}
+.card{
+    background-color: #fdfdfd;
+}

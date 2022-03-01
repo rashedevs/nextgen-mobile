@@ -15,19 +15,24 @@
 
 <body>
     <!-- header added -->
-    <h1 class="text-center text-info mt-3">NextGen Mobile <span><i class="fa-solid fa-mobile text-warning"></i></span>
+    <h1 id="header" class="text-center mt-3">
+        NextGen Mobile
+        <span><i class="fa-solid fa-mobile text-warning"></i></span>
     </h1>
-
     <!-- search field & results -->
     <div class="container">
         <!-- search field & button -->
         <div class="d-flex justify-content-center">
-            <input id="input-value" class="form-control mx-2 w-50" type="search" placeholder="Search your dream phone"
+            <input id="input-value" class="form-control me-2 p-2 w-50" type="search" placeholder="Search your phone"
                 aria-label="Search">
-            <button onclick="loadPhones()" class="btn btn-outline-primary px-4" type="submit">Search</button>
+            <button onclick="loadPhones()" class="btn btn-outline-primary px-4 py-2" type="submit">Search</button>
         </div>
         <!-- Error message part -->
         <h2 id="error" class="text-danger text-center"></h2>
+        <!-- details container -->
+        <div id="details-box">
+
+        </div>
         <!-- search result part -->
         <div id="main" class="row">
 
