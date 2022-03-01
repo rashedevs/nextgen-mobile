@@ -21,7 +21,7 @@ const displayPhones = phones => {
         div.classList.add('col-lg-4')
         div.classList.add('my-4')
         div.innerHTML = `
-                <div class="card">
+                <div class="card shadow">
                     <img src="${phone.image}" class="card-img-top w-75 mx-auto mt-3" alt="">
                     <div class="card-body">
                         <h5 class="card-title text-center">Name: ${phone.phone_name}</h5>
@@ -48,7 +48,7 @@ const setDetails = details => {
     const div = document.createElement('div')
     div.classList.add('my-4')
     div.innerHTML = `
-        <div class="card ">
+        <div class="card shadow">
         <div class="row g-0">
             <div class="col-lg-6">
             <img id="detail-image" src="${details.image}" class="w-100" alt="">
