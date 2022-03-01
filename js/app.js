@@ -26,7 +26,9 @@ const displayPhones = phones => {
                     <div class="card-body">
                         <h5 class="card-title text-center">Name: ${phone.phone_name}</h5>
                         <p class="card-text text-center text-success">Brand: ${phone.brand}</p>
-                        <div class="text-center"><button onclick="phoneDetails('${phone.slug}')" class="btn btn-primary w-50">See Details</button></div>
+                        <div class="text-center">
+                        <a href="#details-box"><button onclick="phoneDetails('${phone.slug}')" class="btn btn-primary w-50">See Details</button></a>
+                        </div>
                     </div>
                 </div>
         `
@@ -49,7 +51,7 @@ const setDetails = details => {
         <div class="card ">
         <div class="row g-0">
             <div class="col-lg-6">
-            <img id="image" src="${details.image}" class="w-100" alt="">
+            <img id="detail-image" src="${details.image}" class="w-100" alt="">
             </div>
             <div class="col-lg-6">
             <div class="card-body mt-2">
