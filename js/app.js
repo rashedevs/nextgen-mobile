@@ -2,6 +2,7 @@
 const main = document.getElementById('main')
 const box = document.getElementById('details-box')
 const error = document.getElementById('error')
+const more = document.getElementById('more-btn')
 // load search data---------------------------
 const loadPhones = () => {
     const input = document.getElementById('input-value')
@@ -9,7 +10,7 @@ const loadPhones = () => {
     // input validation-----------------------
     if (input.value == '') {
         main.textContent = ''
-        error.innerHTML = `Please enter a valid name or model.`
+        error.innerHTML = `Please enter a valid name.`
     }
     else {
         input.value = ''
@@ -29,13 +30,15 @@ const loadPhones = () => {
             })
     }
 }
+//disply result-----------------------------------------
 const displayPhones = phones => {
     // console.log(phones)
     main.textContent = ''
     box.textContent = ''
+    // load first 20 data-------------------------------
     const first20Data = phones.slice(0, 20)
     for (const phone of first20Data) {
-        console.log(phone.slug)
+        // console.log(phone.slug)
         const div = document.createElement('div')
         div.classList.add('col-lg-4')
         div.classList.add('my-4')
@@ -53,9 +56,10 @@ const displayPhones = phones => {
         `
         main.appendChild(div)
     }
+    more.style.display = 'block'
 }
+// show phone details----------------------------------------
 const phoneDetails = id => {
-    // console.log(id)
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
         .then(res => res.json())
@@ -66,11 +70,13 @@ const setDetails = details => {
     box.textContent = ''
     const div = document.createElement('div')
     div.classList.add('my-4')
-    const field = document.getElementById('release')
+    // relase date validation--------------------------------
     if (details.releaseDate == '') {
-        details.releaseDate = 'No release date found.'
+        details.releaseDate = 'Release date not found.'
     }
     else { details.releaseDate }
+    // console.log(details.others)
+    //Using optional chaining-------------------------------
     div.innerHTML = `
         <div class="card shadow">
         <div class="row g-0">
@@ -80,8 +86,8 @@ const setDetails = details => {
             <div class="col-lg-6">
             <div class="card-body">
                 <h3 class="card-title"><span class="text-primary">Name:</span>  ${details.name}</h3>
-                <h5 class="card-text"><span class="text-primary" id="release">Release date: </span>${details.releaseDate}</h5>
-                <h5 class="card-text text-primary">Features:</h5>
+                <h5 class="card-text"><span class="text-primary" id="release">Release date: </span>${details?.releaseDate}</h5>
+                <h5 class="card-text text-primary">Main Features:</h5>
                 <p>Chipset: ${details.mainFeatures?.chipSet}</p>
                 <p>Storage: ${details.mainFeatures?.storage}</p>
                 <p>Memory: ${details.mainFeatures?.memory}</p>
@@ -89,7 +95,10 @@ const setDetails = details => {
                 <h5 class="card-text text-primary">Sensors:</h5>
                 <p>${details.mainFeatures.sensors}</p>
                 <h5 class="card-text text-primary">Others:</h5>
-                <p>WLAN: ${details.others?.WLAN}</p> <p>Bluetooth: ${details.others?.Bluetooth}</p> <p>GPS: ${details.others?.GPS}</p> <p>NFC: ${details.others?.NFC}</p>
+                <p>WLAN: ${details?.others?.WLAN ?? "Details not available."}</p>
+                <p>Bluetooth: ${details?.others?.Bluetooth ?? "Details not available."}</p>
+                <p>GPS: ${details?.others?.GPS ?? "Details not available."}</p>
+                <p>NFC: ${details?.others?.NFC ?? "Details not available."}</p>
             </div>
             </div>
         </div>
