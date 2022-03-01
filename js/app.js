@@ -23,7 +23,7 @@ const loadPhones = () => {
                 // result validation------------
                 if (data.data == '') {
                     main.textContent = ''
-                    error.innerHTML = `No phone found.`
+                    error.innerHTML = `No result found.`
                 }
                 else { displayPhones(data.data) }
             })
@@ -62,10 +62,15 @@ const phoneDetails = id => {
         .then(data => setDetails(data.data))
 }
 const setDetails = details => {
-    console.log(details.mainFeatures.sensors)
+    // console.log(details.mainFeatures.sensors)
     box.textContent = ''
     const div = document.createElement('div')
     div.classList.add('my-4')
+    const field = document.getElementById('release')
+    if (details.releaseDate == '') {
+        details.releaseDate = 'No release date found.'
+    }
+    else { details.releaseDate }
     div.innerHTML = `
         <div class="card shadow">
         <div class="row g-0">
@@ -75,7 +80,7 @@ const setDetails = details => {
             <div class="col-lg-6">
             <div class="card-body">
                 <h3 class="card-title"><span class="text-primary">Name:</span>  ${details.name}</h3>
-                <h5 class="card-text"><span class="text-primary">Release Date:</span> ${details?.releaseDate}</h5>
+                <h5 class="card-text"><span class="text-primary" id="release">Release date: </span>${details.releaseDate}</h5>
                 <h5 class="card-text text-primary">Features:</h5>
                 <p>Chipset: ${details.mainFeatures?.chipSet}</p>
                 <p>Storage: ${details.mainFeatures?.storage}</p>
