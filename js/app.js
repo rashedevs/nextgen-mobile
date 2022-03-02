@@ -48,7 +48,7 @@ const displayPhones = phones => {
     for (const phone of first20Data) {
         const div = document.createElement('div')
         div.classList.add('col-lg-4')
-        div.classList.add('my-4')
+        div.classList.add('mb-5')
         div.innerHTML = `
                 <div class="card shadow">
                     <img src="${phone.image}" class="card-img-top w-75 mx-auto mt-3" style="height:350px">
