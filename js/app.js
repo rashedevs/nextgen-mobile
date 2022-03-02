@@ -51,7 +51,7 @@ const displayPhones = phones => {
         div.classList.add('mb-5')
         div.innerHTML = `
                 <div class="card shadow">
-                    <img src="${phone.image}" class="card-img-top w-75 mx-auto mt-3" style="height:350px;">
+                    <img id="phone-img" src="${phone.image}" class="card-img-top w-75 mx-auto mt-3">
                     <div class="card-body">
                         <h5 class="card-title text-center">Name: ${phone.phone_name}</h5>
                         <p class="card-text text-center text-success">Brand: ${phone.brand}</p>

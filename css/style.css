@@ -7,6 +7,9 @@ body{
 #header{
     color: #1f96f7;
 }
+#phone-img{
+    height: 280px !important;
+}
 #detail-image{
     height: 480px;
 width: 400px !important;
