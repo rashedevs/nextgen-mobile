@@ -2,11 +2,15 @@
 const main = document.getElementById('main')
 const box = document.getElementById('details-box')
 const error = document.getElementById('error')
-const more = document.getElementById('more-btn')
+// spinner------------------------------------
+const showSpinner = display => {
+    document.getElementById('spinner').style.display = display
+}
 // load search data---------------------------
 const loadPhones = () => {
     const input = document.getElementById('input-value')
     const textKey = input.value
+    showSpinner('block')
     // input validation-----------------------
     if (input.value == '') {
         main.textContent = ''
@@ -24,6 +28,8 @@ const loadPhones = () => {
                 // result validation------------
                 if (data.data == '') {
                     main.textContent = ''
+                    box.textContent = ''
+                    showSpinner('none')
                     error.innerHTML = `No result found.`
                 }
                 else { displayPhones(data.data) }
@@ -32,13 +38,12 @@ const loadPhones = () => {
 }
 //disply result-----------------------------------------
 const displayPhones = phones => {
-    // console.log(phones)
     main.textContent = ''
     box.textContent = ''
+    showSpinner('none')
     // load first 20 data-------------------------------
     const first20Data = phones.slice(0, 20)
     for (const phone of first20Data) {
-        // console.log(phone.slug)
         const div = document.createElement('div')
         div.classList.add('col-lg-4')
         div.classList.add('my-4')
@@ -56,7 +61,6 @@ const displayPhones = phones => {
         `
         main.appendChild(div)
     }
-    more.style.display = 'block'
 }
 // show phone details----------------------------------------
 const phoneDetails = id => {
@@ -66,7 +70,6 @@ const phoneDetails = id => {
         .then(data => setDetails(data.data))
 }
 const setDetails = details => {
-    // console.log(details.mainFeatures.sensors)
     box.textContent = ''
     const div = document.createElement('div')
     div.classList.add('my-4')
@@ -75,7 +78,6 @@ const setDetails = details => {
         details.releaseDate = 'Release date not found.'
     }
     else { details.releaseDate }
-    // console.log(details.others)
     //Using optional chaining-------------------------------
     div.innerHTML = `
         <div class="card shadow">

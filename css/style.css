@@ -1,3 +1,4 @@
+/*------------------custom styles-----------------*/
 body{
     background-color: #fdfdfd;
     margin: 0;
@@ -9,6 +10,10 @@ body{
 #detail-image{
     height: 550px;
     margin: 5px;
+}
+#spinner {
+    text-align: center;
+    display: none;
 }
 .card{
     background-color: #ebfcf4;
