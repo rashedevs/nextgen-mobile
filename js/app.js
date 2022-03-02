@@ -89,7 +89,7 @@ const setDetails = details => {
             </div>
             <div class="col-lg-6">
             <div class="card-body">
-                <h3 class="card-title"><span class="text-primary">Name:</span>  ${details.name}</h3>
+                <h4 class="card-title"><span class="text-primary">Name:</span>  ${details.name}</h4>
                 <h5 class="card-text"><span class="text-primary" id="release">Release date: </span>${details?.releaseDate}</h5>
                 <h5 class="card-text text-primary">Main Features:</h5>
                 <p>Chipset: ${details.mainFeatures?.chipSet}</p>
