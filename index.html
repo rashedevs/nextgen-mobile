@@ -19,16 +19,17 @@
         NextGen Mobile
         <span><i class="fa-solid fa-mobile text-warning"></i></span>
     </h1>
+    <h4 class="text-center text-warning mb-3">Spend small and have great phones</h4>
+    <!-- search field & button -->
+    <div class="d-flex justify-content-center">
+        <input id="input-value" class="form-control me-2 p-2 w-50" type="search" placeholder="Search your phone"
+            aria-label="Search">
+        <button onclick="loadPhones()" class="btn btn-outline-primary px-4 py-2">Search</button>
+    </div>
     <!-- search field & results -->
     <div class="container">
-        <!-- search field & button -->
-        <div class="d-flex justify-content-center">
-            <input id="input-value" class="form-control me-2 p-2 w-50" type="search" placeholder="Search your phone"
-                aria-label="Search">
-            <button onclick="loadPhones()" class="btn btn-outline-primary px-4 py-2" type="submit">Search</button>
-        </div>
         <!-- spinner -->
-        <div id="spinner"><button class="btn btn-primary mt-3" type="button" disabled>
+        <div id="spinner"><button class="btn btn-primary mt-2" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
             </button>

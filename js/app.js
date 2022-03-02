@@ -2,7 +2,7 @@
 const main = document.getElementById('main')
 const box = document.getElementById('details-box')
 const error = document.getElementById('error')
-// spinner------------------------------------
+// spinner & Show More display------------------------------------
 const showSpinner = display => {
     document.getElementById('spinner').style.display = display
 }
@@ -14,6 +14,8 @@ const loadPhones = () => {
     // input validation-----------------------
     if (input.value == '') {
         main.textContent = ''
+        box.textContent = ''
+        showSpinner('none')
         error.innerHTML = `Please enter a valid name.`
     }
     else {
@@ -100,7 +102,7 @@ const setDetails = details => {
                 <p>WLAN: ${details?.others?.WLAN ?? "Details not available."}</p>
                 <p>Bluetooth: ${details?.others?.Bluetooth ?? "Details not available."}</p>
                 <p>GPS: ${details?.others?.GPS ?? "Details not available."}</p>
-                <p>NFC: ${details?.others?.NFC ?? "Details not available."}</p>
+                <p>NFC: ${details?.others?.NFC ?? "Details not available."}, Radio: ${details?.others?.Radio ?? "Details not available."}</p>
             </div>
             </div>
         </div>
