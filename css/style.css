@@ -8,8 +8,8 @@ body{
     color: #1f96f7;
 }
 #detail-image{
-    height: 550px;
-    margin: 5px;
+    height: 480px;
+width: 400px !important;
 }
 #spinner {
     text-align: center;
